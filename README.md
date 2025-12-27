@@ -1,4 +1,4 @@
-# Plates With P's Chicago Restaurant Week Guide 2025
+# Plates With P's Chicago Restaurant Week Guide 2026
 
 A guide created in collaboration with Chicago content creator Paige Serena to find the best deals during [Chicago Restaurant Week 2026](https://www.choosechicago.com/chicago-restaurant-week/).
 
