@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About This Guide | Plates With P's Chicago Restaurant Week Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --warm-white: #FFFDF9;
+            --terracotta: #C4704B;
+            --terracotta-light: #E8A888;
+            --sage: #8B9A7D;
+            --charcoal: #2D2D2D;
+            --warm-gray: #6B6560;
+            --light-gray: #E5E0DA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #3D3D3D 100%);
+            color: var(--cream);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terracotta-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .disclaimer-card {
+            background: var(--warm-white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .disclaimer-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+        }
+
+        .disclaimer-intro {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .disclaimer-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .disclaimer-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--warm-gray);
+        }
+
+        .disclaimer-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            background: var(--terracotta-light);
+            border-radius: 50%;
+        }
+
+        .disclaimer-highlight {
+            background: linear-gradient(135deg, rgba(196, 112, 75, 0.08) 0%, rgba(196, 112, 75, 0.03) 100%);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .support-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .support-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .support-section p {
+            color: var(--warm-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .support-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .support-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--cream);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+        }
+
+        .support-method-label {
+            font-weight: 600;
+            color: var(--terracotta);
+            min-width: 80px;
+        }
+
+        .support-method-value {
+            color: var(--charcoal);
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .credit {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            line-height: 1.8;
+        }
+
+        .credit a {
+            color: var(--terracotta);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .credit a:hover {
+            color: var(--charcoal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .disclaimer-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+            Back to Guide
+        </a>
+        <h1>About This Guide</h1>
+    </header>
+
+    <main class="container">
+        <div class="disclaimer-card">
+            <h2>Disclaimer</h2>
+            
+            <p class="disclaimer-intro">This spreadsheet is intended to be used as a guide, not an exact savings calculator. There's not an exact science!</p>
+            
+            <ul class="disclaimer-list">
+                <li>All pricing comparisons are estimates based on regular menus available at the time</li>
+                <li>Prices are calculated using averages, not the most expensive items (although sometimes a sample of the most expensive item was used)</li>
+                <li>Portion size is factored in when clearly stated on the RW menu (ex: RW 6oz filet vs 8oz, adjusted proportionally)</li>
+                <li>Vegetarian / vegan menus consistently show lower value due to regular menu pricing</li>
+                <li>If a menu has 4+ courses, courses may be combined across appetizers / entrees for consistency</li>
+                <li>Some menus have brand-new or RW only items and can't be directly compared</li>
+                <li>"Too Different To Tell" = menu didn't have a clean comparison or brand new menu</li>
+                <li>Restaurants that do not list dessert are of higher value in general - often more substantial food</li>
+                <li>Some restaurants were manually adjusted based on menu quality, structure, or missing pricing... sometimes personal bias too</li>
+                <li>Removed all of Nando's + Lou Malnati's</li>
+            </ul>
+
+            <div class="disclaimer-highlight">
+                ⚠️ Value on paper ≠ overall experience (and vice versa)<br>
+                <strong>ALWAYS review the menu yourself prior to booking</strong>
+            </div>
+
+            <div class="support-section">
+                <h3>Support The Guide 🥰</h3>
+                <p>If this is helpful, please feel free to support the guide and future iterations!</p>
+                
+                <div class="support-methods">
+                    <div class="support-method">
+                        <span class="support-method-label">Cash App</span>
+                        <span class="support-method-value">$paigeserena</span>
+                    </div>
+                    <div class="support-method">
+                        <span class="support-method-label">PayPal</span>
+                        <span class="support-method-value">plateswithp@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="footer-note">🍽️</p>
+
+            <div class="credit">
+                Made with ✨ by Jorge Mir Alvarez<br>
+                <a href="https://jmiralva.me" target="_blank" rel="noopener noreferrer">Web</a> · <a href="http://instagram.com/jmiralva" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
