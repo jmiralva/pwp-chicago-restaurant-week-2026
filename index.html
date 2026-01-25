@@ -287,10 +287,34 @@
             margin-bottom: 1rem;
         }
 
+        .filters-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .filters-toggle-icon {
+            display: none;
+            transition: transform 0.3s ease;
+            color: var(--warm-gray);
+        }
+
+        .filters-section.collapsed .filters-toggle-icon {
+            transform: rotate(-90deg);
+        }
+
         .filters-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.25rem;
             color: var(--charcoal);
+        }
+
+        .filters-content {
+            display: block;
         }
 
         .clear-filters {
@@ -1200,6 +1224,43 @@
             .modal-body {
                 padding: 1.5rem;
             }
+
+            /* Collapsible filters on mobile */
+            .filters-section {
+                padding: 1rem;
+            }
+
+            .filters-toggle-icon {
+                display: block;
+            }
+
+            .filters-header {
+                margin-bottom: 0;
+            }
+
+            .filters-section:not(.collapsed) .filters-header {
+                margin-bottom: 1rem;
+            }
+
+            .filters-content {
+                display: grid;
+                grid-template-rows: 1fr;
+                transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+                opacity: 1;
+            }
+
+            .filters-content > * {
+                overflow: hidden;
+            }
+
+            .filters-section.collapsed .filters-content {
+                grid-template-rows: 0fr;
+                opacity: 0;
+            }
+
+            .filters-section.collapsed .filters-content > * {
+                min-height: 0;
+            }
         }
     </style>
 </head>
@@ -1226,11 +1287,15 @@
             <input type="text" class="search-input" id="search-input" placeholder="Search restaurants, cuisines, or neighborhoods...">
         </div>
 
-        <div class="filters-section">
+        <div class="filters-section" id="filters-section">
             <div class="filters-header">
-                <span class="filters-title">Filters</span>
+                <button class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters-content">
+                    <span class="filters-title">Filters</span>
+                    <svg class="filters-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
                 <button class="clear-filters" id="clear-filters">Clear all</button>
             </div>
+            <div class="filters-content" id="filters-content">
             <div class="filters-grid">
                 <div class="filter-group">
                     <label>Neighborhood</label>
@@ -1317,6 +1382,7 @@
                     <input type="checkbox" id="filter-beverage">
                     Beverage Included
                 </label>
+            </div>
             </div>
         </div>
 
@@ -1407,6 +1473,35 @@
     const modalOverlay = document.getElementById('modal-overlay');
     const modal = document.getElementById('modal');
     const modalClose = document.getElementById('modal-close');
+    const filtersSection = document.getElementById('filters-section');
+    const filtersToggle = document.getElementById('filters-toggle');
+
+    // Collapsible filters for mobile
+    function initCollapsibleFilters() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        // Start collapsed on mobile
+        if (isMobile) {
+            filtersSection.classList.add('collapsed');
+            filtersToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        filtersToggle.addEventListener('click', () => {
+            const isCollapsed = filtersSection.classList.toggle('collapsed');
+            filtersToggle.setAttribute('aria-expanded', !isCollapsed);
+        });
+
+        // Handle resize: expand on desktop, keep state on mobile
+        window.addEventListener('resize', () => {
+            const isMobileNow = window.matchMedia('(max-width: 768px)').matches;
+            if (!isMobileNow) {
+                filtersSection.classList.remove('collapsed');
+                filtersToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    }
+
+    initCollapsibleFilters();
 
     // Count items per filter value
     function countByField(field) {
